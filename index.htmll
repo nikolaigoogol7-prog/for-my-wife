@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Click</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <button id="clickBox" class="click-box" type="button" aria-label="Click to reveal">
+        click
+      </button>
+
+      <h1 id="message" class="message" aria-live="polite"></h1>
+
+      <div id="rainLayer" class="rain-layer" aria-hidden="true"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
