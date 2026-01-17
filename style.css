@@ -1,0 +1,90 @@
+:root {
+  --bg: #0b0f19;
+  --panel: rgba(255, 255, 255, 0.08);
+  --panel-border: rgba(255, 255, 255, 0.18);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 800px at 50% 30%, #1a2240, var(--bg));
+  color: var(--text);
+  overflow: hidden;
+}
+
+.wrap {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+}
+
+.click-box {
+  width: min(260px, 85vw);
+  height: 120px;
+  border-radius: 18px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: transform 120ms ease, background 200ms ease;
+}
+
+.click-box:hover { transform: translateY(-2px); }
+.click-box:active { transform: translateY(1px) scale(0.99); }
+
+.message {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0;
+  transition: opacity 350ms ease, transform 350ms ease;
+}
+
+.message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(6px);
+}
+
+.rain-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.smile {
+  position: absolute;
+  top: -40px;
+  font-size: 22px;
+  color: var(--muted);
+  will-change: transform, opacity;
+  animation: fall linear forwards;
+  user-select: none;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 0;
+  }
+  8% { opacity: 1; }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
